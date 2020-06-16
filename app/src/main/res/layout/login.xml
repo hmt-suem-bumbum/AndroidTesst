@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Create New Account"
+            android:text="Login"
             android:gravity="center"
             android:radius="5dp"
             android:textColor="@color/colorBackGround"
@@ -53,17 +53,6 @@
             android:id="@+id/password"
             android:padding="8dp"
             />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Confirm Password*"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/mobile"
-            android:padding="8dp"
-            />
 
         <Button
             android:layout_width="match_parent"
@@ -72,7 +61,7 @@
             android:background="@color/colorBackGround"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:text="Register"
+            android:text="Login"
             android:textColor="@android:color/white"
             android:textAllCaps="false"
             android:id="@+id/register"/>
