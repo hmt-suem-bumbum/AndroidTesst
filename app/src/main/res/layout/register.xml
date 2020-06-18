@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:id="@+id/lvparent"
         android:layout_below="@+id/toolbar">
         <ImageView
             android:layout_width="match_parent"
@@ -49,7 +50,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:id="@+id/password"
             android:padding="8dp"
             />
@@ -75,7 +76,7 @@
             android:text="Register"
             android:textColor="@android:color/white"
             android:textAllCaps="false"
-            android:id="@+id/register"/>
+            android:id="@+id/btnRegister"/>
     </LinearLayout>
 
 
