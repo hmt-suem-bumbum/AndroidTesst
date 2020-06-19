@@ -23,37 +23,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Login"
+            android:text="Data"
+            android:id="@+id/txtUsername"
             android:gravity="center"
             android:radius="5dp"
             android:textColor="@color/colorBackGround"
             android:textSize="20dp"
             android:textStyle="bold"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email Address*"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/edtEmail"
-            android:padding="8dp"
-            />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password*"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:inputType="textPassword"
-            android:id="@+id/edtPassword"
-            android:padding="8dp"
-            />
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,10 +37,17 @@
             android:background="@color/colorBackGround"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:text="Login"
+            android:text="Search..."
             android:textColor="@android:color/white"
             android:textAllCaps="false"
-            android:id="@+id/btnLogin"/>
+            android:id="@+id/btnSearch"/>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+
+
     </LinearLayout>
 
 

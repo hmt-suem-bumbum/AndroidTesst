@@ -4,20 +4,17 @@ import com.example.model.User;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface UserService {
 
 
-    @POST("/api/")
+    @POST("/rest/api/regist/requesters")
     Call<User> addUser(@Body User user);
 
-//    @GET("user/")
-//    Call<List<User> getUsers();
-//
-//    @PUT("update/{id}")
-//    Call<User> updateUser(@Path("id") int id, @Body User user);
-//
-//    @DELETE("delete/{id}")
-//    Call<User> deleteUser(@Path("id") int id);
+    @GET("/rest/api/authen/requester/login/{username}/{password}")
+    Call login(@Path("username") String username, @Path("password") String password);
+
 }
