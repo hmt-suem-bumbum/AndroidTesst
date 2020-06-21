@@ -46,7 +46,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     private boolean validateLogin(String username, String password){

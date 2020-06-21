@@ -14,7 +14,7 @@ public interface UserService {
     @POST("/rest/api/regist/requesters")
     Call<User> addUser(@Body User user);
 
-    @GET("/rest/api/authen/requester/login/{username}/{password}")
-    Call login(@Path("username") String username, @Path("password") String password);
+    @POST("/rest/api/authen/requester/login/{username}/{password}")
+    Call<User> login(@Path("username") String username, @Path("password") String password);
 
 }
