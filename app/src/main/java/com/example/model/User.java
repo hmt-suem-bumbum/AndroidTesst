@@ -15,6 +15,10 @@ public class User {
     @Expose
     private String confirmPassword;
 
+    @SerializedName("message")
+    @Expose
+    private String message;
+
     public User() {
     }
 
@@ -22,6 +26,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.confirmPassword = confirmPassword;
+        this.message = message;
     }
 
     public String getEmail() {
@@ -48,7 +53,11 @@ public class User {
         this.confirmPassword = confirmPassword;
     }
 
-//    public void setName(String name) {
-//        this.name = name;
-//    }
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

@@ -60,19 +60,18 @@ public class LoginActivity extends AppCompatActivity {
         return true;
     }
 
-    private void doLogin(final String username,final String password){
-        Call call = userService.login(username,password);
+    private void doLogin(final String username, final String password){
+        Call call = userService.login(username, password);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 if(response.isSuccessful()){
                     User user = (User) response.body();
-                    if(user.getEmail().equals("true")){
+                    if(user.getMessage().equals("true")){
                         //login start main activity
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         intent.putExtra("username", username);
                         startActivity(intent);
-
                     } else {
                         Toast.makeText(LoginActivity.this, "The username or password is incorrect", Toast.LENGTH_SHORT).show();
                     }
