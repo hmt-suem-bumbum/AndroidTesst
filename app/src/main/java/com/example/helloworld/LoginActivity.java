@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.model.ResponseClass;
 import com.example.model.User;
 import com.example.remote.APIUtils;
 import com.example.remote.UserService;
@@ -59,19 +60,22 @@ public class LoginActivity extends AppCompatActivity {
         }
         return true;
     }
-
-    private void doLogin(final String username, final String password){
-        Call call = userService.login(username, password);
-        call.enqueue(new Callback() {
+    private void doLogin(final String username,final String password){
+        final User user = new User();
+        user.setEmail(username);
+        user.setPassword(password);
+        Call call = userService.login(user);
+        call.enqueue(new Callback<ResponseClass>() {
             @Override
             public void onResponse(Call call, Response response) {
                 if(response.isSuccessful()){
-                    User user = (User) response.body();
-                    if(user.getMessage().equals("true")){
+                    ResponseClass res = (ResponseClass) response.body();
+                    if(res.getCode() == 0){
                         //login start main activity
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         intent.putExtra("username", username);
                         startActivity(intent);
+
                     } else {
                         Toast.makeText(LoginActivity.this, "The username or password is incorrect", Toast.LENGTH_SHORT).show();
                     }
