@@ -52,17 +52,17 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void addUser(User u){
-        Call<User> call = userService.addUser(u);
-        call.enqueue(new Callback<User>() {
+        Call call = userService.addUser(u);
+        call.enqueue(new Callback() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call call, Response response) {
                 if(response.isSuccessful()){
                     Toast.makeText(RegisterActivity.this, "User created successfully!", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call call, Throwable t) {
                 Log.e("ERROR: ", t.getMessage());
             }
         });
