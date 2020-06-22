@@ -1,10 +1,8 @@
 package com.example.model;
 
-<<<<<<< HEAD
-public class ResponseClass {
-=======
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
 
 public class ResponseClass {
     @SerializedName("code")
@@ -51,5 +49,4 @@ public class ResponseClass {
     public void setStatus_code(String status_code) {
         this.status_code = status_code;
     }
->>>>>>> 2105caf69bc5e0b6116dbe9b2a13fdb9a41fccf3
 }
