@@ -13,12 +13,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_below="@+id/toolbar">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:id="@+id/anh"
-            android:background="@color/colorBackGround"
-            android:src="@drawable/anh"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,17 +29,24 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@color/colorBackGround"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
             android:text="Search..."
             android:textColor="@android:color/white"
             android:textAllCaps="false"
             android:id="@+id/btnSearch"/>
-        <ListView
+        <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:hint="Search*"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/searchText"
+            />
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tableLayout">
 
-        </ListView>
+        </TableLayout>
 
 
     </LinearLayout>
