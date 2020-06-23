@@ -59,37 +59,14 @@ public class MainActivity extends AppCompatActivity {
             username = extras.getString("username");
             txtUsername.setText("Welcome " + username);
         }
-        search.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                data_search = search.getText().toString();
-                data = new JSONObject();
-                try {
-                    data.put("user_id", username);
-                    data.put("search_data", data_search);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        btnSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getData();
-            }
-        });
-    }
-
-    public void getData() {
+        data_search = search.getText().toString();
+        data = new JSONObject();
+        try {
+            data.put("user_id", username);
+            data.put("search_data", data_search);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         Call<ResponseClass> call = userService.searchRes(data);
         call.enqueue(new Callback<ResponseClass>() {
             @Override
@@ -118,6 +95,49 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ResponseClass> call, Throwable t) {
+            }
+        });
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                data_search = search.getText().toString();
+                data = new JSONObject();
+                try {
+                    data.put("user_id", username);
+                    data.put("search_data", data_search);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                Call<ResponseClass> call = userService.searchRes(data);
+                call.enqueue(new Callback<ResponseClass>() {
+                    @Override
+                    public void onResponse(Call<ResponseClass> call, Response<ResponseClass> response) {
+                        tabLay.removeAllViews();
+                        itemReq = response.body().getList_request();
+                        if (itemReq.size() > 0) {
+                            for (int i = 0; i < itemReq.size(); i++) {
+                                TableRow tabRow = new TableRow(getApplicationContext());
+                                String device = itemReq.get(i).getDevice();
+                                String date = itemReq.get(i).getRequest_date();
+                                String name = itemReq.get(i).getName();
+                                TextView tv1 = new TextView(getApplicationContext());
+                                TextView tv2 = new TextView(getApplicationContext());
+                                TextView tv3 = new TextView(getApplicationContext());
+                                tv1.setText(name);
+                                tv2.setText(date);
+                                tv3.setText(device);
+                                tabRow.addView(tv1);
+                                tabRow.addView(tv3);
+                                tabRow.addView(tv2);
+                                tabLay.addView(tabRow);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseClass> call, Throwable t) {
+                    }
+                });
             }
         });
     }
