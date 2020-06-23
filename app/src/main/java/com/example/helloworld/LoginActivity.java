@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText edtEmail;
     EditText edtPassword;
     Button btnLogin;
+    Button btnRegister;
     UserService userService;
 
     @Override
@@ -33,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         edtEmail = (EditText) findViewById(R.id.edtEmail);
         edtPassword = (EditText) findViewById(R.id.edtPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnRegister = (Button) findViewById(R.id.btnRegister);
         userService = APIUtils.getUserService();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +47,14 @@ public class LoginActivity extends AppCompatActivity {
                     //do login
                     doLogin(username, password);
                 }
+            }
+        });
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
     }

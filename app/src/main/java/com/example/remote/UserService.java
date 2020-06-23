@@ -16,4 +16,6 @@ public interface UserService {
     @POST("/rest/api/authen/requester/login")
     Call<ResponseClass> login(@Body User user);
 
+    @POST("/rest/api/regist/get_data_requests")
+    Call<ResponseClass> getDataUser(@Body User user);
 }
