@@ -2,7 +2,7 @@ package com.example.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
+import java.util.List;
 
 public class ResponseClass {
     @SerializedName("code")
@@ -17,14 +17,28 @@ public class ResponseClass {
     @Expose
     private String status_code;
 
-    public ResponseClass() {
+    public List<request> getList_request() {
+        return list_request;
+    }
+
+    public void setList_request(List<request> list_request) {
+        this.list_request = list_request;
     }
 
     public ResponseClass(int code, String message, String status_code) {
         this.code = code;
         this.message = message;
         this.status_code = status_code;
+        this.list_request = list_request;
     }
+
+    @SerializedName("list_request")
+    @Expose
+    private List<request> list_request;
+
+    public ResponseClass() {
+    }
+
 
     public int getCode() {
         return code;
