@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         tabLay = (TableLayout) findViewById(R.id.tableLayout);
 
         Bundle extras = getIntent().getExtras();
-
+        String username;
 
         if (extras != null) {
             username = extras.getString("username");

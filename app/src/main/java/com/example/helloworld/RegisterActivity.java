@@ -1,5 +1,6 @@
 package com.example.helloworld;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText password;
     EditText confirmPassword;
     Button btnRegister;
+    Button btnBack;
     LinearLayout lvparent;
     UserService userService;
 
@@ -37,6 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password);
         confirmPassword = (EditText) findViewById(R.id.confirmPassword);
         btnRegister = (Button) findViewById(R.id.btnRegister);
+        btnBack = (Button) findViewById(R.id.btnBack);
         lvparent = findViewById(R.id.lvparent);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +50,13 @@ public class RegisterActivity extends AppCompatActivity {
                 u.setPassword(password.getText().toString());
                 u.setConfirmPassword(confirmPassword.getText().toString());
                 addUser(u);
+            }
+        });
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
     }

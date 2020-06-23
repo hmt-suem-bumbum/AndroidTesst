@@ -48,8 +48,4 @@ public class User {
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
-
-//    public void setName(String name) {
-//        this.name = name;
-//    }
 }

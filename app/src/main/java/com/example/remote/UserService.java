@@ -20,4 +20,6 @@ public interface UserService {
     @POST("/rest/api/requesters/search/")
     Call<ResponseClass> searchRes(@Body JSONObject data);
 
+    @POST("/rest/api/regist/get_data_requests")
+    Call<ResponseClass> getDataUser(@Body User user);
 }
