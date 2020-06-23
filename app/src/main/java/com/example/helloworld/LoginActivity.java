@@ -70,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         return true;
     }
+
     private void doLogin(final String username,final String password){
         final User user = new User();
         user.setEmail(username);

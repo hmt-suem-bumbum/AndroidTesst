@@ -46,10 +46,21 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 User u = new User();
-                u.setEmail(email.getText().toString());
-                u.setPassword(password.getText().toString());
-                u.setConfirmPassword(confirmPassword.getText().toString());
-                addUser(u);
+                String emal = email.getText().toString();
+                String pass = password.getText().toString();
+                String confirmPass = confirmPassword.getText().toString();
+
+                u.setEmail(emal);
+                u.setPassword(pass);
+                u.setConfirmPassword(confirmPass);
+
+                if(!pass.equals(confirmPass)){
+                    Toast.makeText(RegisterActivity.this, "Password does not match!", Toast.LENGTH_SHORT).show();
+                }else if(validateRegister(emal, pass, confirmPass)){
+                    //do Register
+                    addUser(u);
+                }
+
             }
         });
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -70,12 +81,27 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "User created successfully!", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call call, Throwable t) {
                 Log.e("ERROR: ", t.getMessage());
             }
         });
+    }
+
+    private boolean validateRegister(String username, String password, String confirmPassword){
+        if(username == null || username.trim().length() == 0){
+            Toast.makeText(this, "Username is required", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(password == null || password.trim().length() == 0){
+            Toast.makeText(this, "Password is required", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(confirmPassword == null || confirmPassword.trim().length() == 0){
+            Toast.makeText(this, "Password is required", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 
 }
