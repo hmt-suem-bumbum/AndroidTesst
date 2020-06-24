@@ -50,9 +50,11 @@
             android:id="@+id/searchText"
             />
         <TableLayout
-            android:id="@+id/tableLayout"
             android:layout_width="fill_parent"
-            android:layout_height="184dp">
+            android:layout_height="match_parent"
+            android:background="@android:drawable/list_selector_background"
+            android:id="@+id/tableLayout">
+
         </TableLayout>
 
         <Button
@@ -68,5 +70,6 @@
             android:textAllCaps="false"
             android:textColor="@android:color/white" />
     </LinearLayout>
+
 
 </RelativeLayout>

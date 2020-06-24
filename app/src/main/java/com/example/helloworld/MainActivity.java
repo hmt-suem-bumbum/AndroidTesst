@@ -1,6 +1,5 @@
 package com.example.helloworld;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -66,6 +65,18 @@ public class MainActivity extends AppCompatActivity {
             username = extras.getString("username");
             txtUsername.setText("Welcome " + username);
         }
+
+        getData();
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getData();
+            }
+        });
+    }
+
+    public void getData(){
         data_search = search.getText().toString();
         data = new JSONObject();
         try {
@@ -80,6 +91,23 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ResponseClass> call, Response<ResponseClass> response) {
                 tabLay.removeAllViews();
                 itemReq = response.body().getList_request();
+                TableRow tabHeader = new TableRow(getApplicationContext());
+                TextView h1 = new TextView(getApplicationContext());
+                TextView h2 = new TextView(getApplicationContext());
+                TextView h3 = new TextView(getApplicationContext());
+                h1.setWidth(300);
+                h2.setWidth(300);
+                h3.setWidth(300);
+                h1.setText("name");
+                h2.setText("date");
+                h3.setText("device");
+                h1.setTextColor(Color.BLACK);
+                h2.setTextColor(Color.BLACK);
+                h3.setTextColor(Color.BLACK);
+                tabHeader.addView(h1);
+                tabHeader.addView(h2);
+                tabHeader.addView(h3);
+                tabLay.addView(tabHeader);
                 if (itemReq.size() > 0) {
                     for (int i = 0; i < itemReq.size(); i++) {
                         TableRow tabRow = new TableRow(getApplicationContext());
@@ -89,6 +117,9 @@ public class MainActivity extends AppCompatActivity {
                         TextView tv1 = new TextView(getApplicationContext());
                         TextView tv2 = new TextView(getApplicationContext());
                         TextView tv3 = new TextView(getApplicationContext());
+                        tv1.setWidth(300);
+                        tv2.setWidth(300);
+                        tv3.setWidth(300);
                         tv1.setText(name);
                         tv2.setText(date);
                         tv3.setText(device);
@@ -102,49 +133,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ResponseClass> call, Throwable t) {
-            }
-        });
-        btnSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                data_search = search.getText().toString();
-                data = new JSONObject();
-                try {
-                    data.put("user_id", username);
-                    data.put("search_data", data_search);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                Call<ResponseClass> call = userService.searchRes(data);
-                call.enqueue(new Callback<ResponseClass>() {
-                    @Override
-                    public void onResponse(Call<ResponseClass> call, Response<ResponseClass> response) {
-                        tabLay.removeAllViews();
-                        itemReq = response.body().getList_request();
-                        if (itemReq.size() > 0) {
-                            for (int i = 0; i < itemReq.size(); i++) {
-                                TableRow tabRow = new TableRow(getApplicationContext());
-                                String device = itemReq.get(i).getDevice();
-                                String date = itemReq.get(i).getRequest_date();
-                                String name = itemReq.get(i).getName();
-                                TextView tv1 = new TextView(getApplicationContext());
-                                TextView tv2 = new TextView(getApplicationContext());
-                                TextView tv3 = new TextView(getApplicationContext());
-                                tv1.setText(name);
-                                tv2.setText(date);
-                                tv3.setText(device);
-                                tabRow.addView(tv1);
-                                tabRow.addView(tv3);
-                                tabRow.addView(tv2);
-                                tabLay.addView(tabRow);
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<ResponseClass> call, Throwable t) {
-                    }
-                });
             }
         });
     }
