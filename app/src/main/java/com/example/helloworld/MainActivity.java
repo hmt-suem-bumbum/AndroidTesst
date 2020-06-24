@@ -1,5 +1,7 @@
 package com.example.helloworld;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -65,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
             username = extras.getString("username");
             txtUsername.setText("Welcome " + username);
         }
-
         getData();
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
