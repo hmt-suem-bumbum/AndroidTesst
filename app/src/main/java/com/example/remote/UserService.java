@@ -17,6 +17,10 @@ public interface UserService {
 
     @POST("/rest/api/authen/requester/login")
     Call<ResponseClass> login(@Body User user);
+
+    @POST("/rest/api/authen/requester/logout")
+    Call<ResponseClass> logout(@Body User user);
+
     @POST("/rest/api/requesters/search/")
     Call<ResponseClass> searchRes(@Body JSONObject data);
 

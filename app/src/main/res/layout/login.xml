@@ -62,9 +62,16 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:text="Login"
+            android:divider="?android:dividerHorizontal"
             android:textColor="@android:color/white"
             android:textAllCaps="false"
             android:id="@+id/btnLogin"/>
+        <View
+            android:layout_width="50dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

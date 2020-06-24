@@ -1,8 +1,7 @@
 package com.example.helloworld;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     String data_search;
     UserService userService;
     Button btnSearch;
+    Button btnLogout;
     JSONObject data;
     EditText search;
     ListView listItem;
@@ -49,12 +49,19 @@ public class MainActivity extends AppCompatActivity {
         txtUsername = (TextView) findViewById(R.id.txtUsername);
         userService = APIUtils.getUserService();
         btnSearch = (Button) findViewById(R.id.btnSearch);
+        btnLogout = (Button) findViewById(R.id.btnLogout);
         search = (EditText) findViewById(R.id.searchText);
         tabLay = (TableLayout) findViewById(R.id.tableLayout);
 
         Bundle extras = getIntent().getExtras();
 
-
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
         if (extras != null) {
             username = extras.getString("username");
             txtUsername.setText("Welcome " + username);

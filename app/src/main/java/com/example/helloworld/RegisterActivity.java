@@ -60,7 +60,6 @@ public class RegisterActivity extends AppCompatActivity {
                     //do Register
                     addUser(u);
                 }
-
             }
         });
         btnBack.setOnClickListener(new View.OnClickListener() {
