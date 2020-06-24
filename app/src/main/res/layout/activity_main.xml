@@ -8,67 +8,72 @@
     <include
         android:id="@+id/toolbar"
         layout="@layout/bar_layout"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_below="@+id/toolbar">
+        android:layout_below="@+id/toolbar"
+        android:orientation="vertical">
+
         <ImageView
+            android:id="@+id/anh"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:id="@+id/anh"
             android:background="@color/colorBackGround"
-            android:src="@drawable/anh"/>
+            android:src="@drawable/anh" />
+
         <TextView
+            android:id="@+id/txtUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Data"
-            android:id="@+id/txtUsername"
             android:gravity="center"
             android:radius="5dp"
+            android:text="Data"
             android:textColor="@color/colorBackGround"
             android:textSize="20dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
         <Button
+            android:id="@+id/btnSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@color/colorBackGround"
             android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="30dp"
+            android:background="@color/colorBackGround"
             android:text="Search..."
-            android:textColor="@android:color/white"
             android:textAllCaps="false"
-            android:id="@+id/btnSearch"/>
+            android:textColor="@android:color/white" />
+
         <EditText
+            android:id="@+id/searchText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Search*"
-            android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:id="@+id/searchText"
-            />
+            android:layout_marginBottom="10dp"
+            android:hint="Search*" />
+
         <TableLayout
+            android:id="@+id/tableLayout"
             android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:background="@android:drawable/list_selector_background"
-            android:id="@+id/tableLayout">
+            android:layout_height="200dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:drawable/list_selector_background">
 
         </TableLayout>
 
         <Button
             android:id="@+id/btnLogout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="300dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_width="126dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginRight="100dp"
             android:background="@color/colorBackGround"
             android:text="Logout"
             android:textAllCaps="false"
             android:textColor="@android:color/white" />
+
     </LinearLayout>
 
 
