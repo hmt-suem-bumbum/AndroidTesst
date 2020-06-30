@@ -100,8 +100,8 @@ public class MainActivity extends AppCompatActivity {
                 h2.setWidth(300);
                 h3.setWidth(300);
                 h1.setText("Name");
-                h2.setText("Date");
-                h3.setText("Device");
+                h2.setText("Device");
+                h3.setText("Date");
                 h1.setTextColor(Color.BLACK);
                 h2.setTextColor(Color.BLACK);
                 h3.setTextColor(Color.BLACK);

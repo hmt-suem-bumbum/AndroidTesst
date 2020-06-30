@@ -40,9 +40,10 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String username = edtEmail.getText().toString();
                 String password = edtPassword.getText().toString();
-                //validate form
+                //validate formre
                 if(validateLogin(username, password)){
                     //do login
                     doLogin(username, password);
@@ -88,7 +89,8 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(intent);
 
                     } else {
-                        Toast.makeText(LoginActivity.this, "The username or password is incorrect", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(LoginActivity.this, "The username or password is incorrect", Toast.LENGTH_SHORT).show();
+//                        openDialog();
                     }
                 } else {
                     Toast.makeText(LoginActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
